@@ -3,9 +3,9 @@
 
 datasource db {
   provider             = "mysql"
-    url                  = env("DATABASE_URL")
-    //url                  = "mysql://root:password@localhost:3306/sharegpt"
-    //url                  = "mysql://root:password@mysql:3306/sharegpt"
+  url                  = env("DATABASE_URL")
+  //url                  = "mysql://root:password@localhost:3306/sharegpt"
+  //url                  = "mysql://root:password@mysql:3306/sharegpt"
 }
 
 generator client {
