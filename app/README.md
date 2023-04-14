@@ -8,10 +8,9 @@ Frontend for ChatGPT Share. To start sharing ChatGPT conversations, visit https:
 2. Run the command below to migrate the database. Note, you must create a MySQL database first and replace the values in the command with your own.
 
 ```bash
-    export DATABASE_URL="mysql://user:password@host:port/database"
-    npx prisma migrate dev --schema sharegpt-app/prisma/schema.prisma
+    export DATABASE_URL="mysql://mysql:password@localhost:3306/sharegpt"
+    npx prisma migrate dev --schema prisma/schema.prisma
 ```
-
 3. Copy the .env.example file to .env and fill in the values
 4. Install dependencies in the sharegpt-app
 
@@ -25,6 +24,7 @@ yarn
 ```bash
     yarn dev
 ```
+
 
 
 
