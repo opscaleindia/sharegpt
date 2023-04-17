@@ -3,7 +3,7 @@ RUN apt-get update
 WORKDIR /app
 COPY ./package.json .
 RUN apt-get install -y openssl
-RUN npm install --production
+RUN npm install --production --save
 RUN npm i -g prisma
 COPY . .
 ARG DATABASE_URL=mysql://root:password@0.0.0.0:3306/sharegpt
