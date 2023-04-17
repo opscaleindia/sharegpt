@@ -8,9 +8,8 @@ RUN npm install --production
 RUN npm i -g prisma
 COPY ./ ${APP_ROOT}/
 ARG DATABASE_URL=mysql://root:password@0.0.0.0:3306/sharegpt
-# RUN npx prisma generate --schema ${APP_ROOT}/prisma/schema.prisma
 # RUN npx prisma migrate deploy --schema ${APP_ROOT}/prisma/schema.prisma
-RUN npx run build
+RUN npm run build
 EXPOSE 3000
 CMD ["npm", "run", "start"]
 # ENTRYPOINT ["tail"]

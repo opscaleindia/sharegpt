@@ -5,7 +5,7 @@ version: "3.1"
 services:
   next_app:
     container_name: next_app
-    restart: never
+    restart: always
     image: opscale-sharegpt:v1
     env_file:
       - .env.production
