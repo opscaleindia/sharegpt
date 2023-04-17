@@ -12,8 +12,6 @@ ARG DATABASE_URL=mysql://root:password@0.0.0.0:3306/sharegpt
 RUN npm run build
 EXPOSE 3000
 CMD ["npm", "run", "start"]
-# ENTRYPOINT ["tail"]
-# CMD ["-f", "/dev/null"]
 
 
 # FROM node:lts
