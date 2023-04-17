@@ -1,15 +1,16 @@
-FROM node:18.15.0
+FROM node:lts
 RUN apt-get update
-WORKDIR /app
-COPY ./package.json .
+ENV APP_ROOT /app
+WORKDIR ${APP_ROOT}
+COPY ./package*.json ${APP_ROOT}/
 RUN apt-get install -y openssl
-RUN npm install --production --save
+RUN npm install --production
 RUN npm i -g prisma
-COPY . .
+COPY ./ ${APP_ROOT}/
 ARG DATABASE_URL=mysql://root:password@0.0.0.0:3306/sharegpt
-RUN npx prisma generate --schema ./prisma/schema.prisma
-RUN npx prisma migrate deploy --schema prisma/schema.prisma
-RUN npm run build
+# RUN npx prisma generate --schema ${APP_ROOT}/prisma/schema.prisma
+# RUN npx prisma migrate deploy --schema ${APP_ROOT}/prisma/schema.prisma
+RUN npx run build
 EXPOSE 3000
 CMD ["npm", "run", "start"]
 # ENTRYPOINT ["tail"]

@@ -1,1 +1,1 @@
-docker build --network=host .
+docker build --network=host -f Dockerfile -t opscale-sharegpt:v1 .
