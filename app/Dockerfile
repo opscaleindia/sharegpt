@@ -11,6 +11,7 @@ ARG DATABASE_URL=mysql://root:password@0.0.0.0:3306/sharegpt
 # RUN npx prisma migrate deploy --schema ${APP_ROOT}/prisma/schema.prisma
 RUN npm run build
 EXPOSE 3000
+EXPOSE 80
 CMD ["npm", "run", "start"]
 
 
