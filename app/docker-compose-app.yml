@@ -16,3 +16,10 @@ services:
       - "80:80"
     volumes:
       - app_vol:/app
+    networks:
+      - sharegpt_network
+
+networks:
+  sharegpt_network:
+    name: sharegpt_network
+    external: true
