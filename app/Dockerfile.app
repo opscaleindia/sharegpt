@@ -6,6 +6,7 @@ RUN apt-get install -y openssl
 RUN npm install --production
 RUN npm i -g prisma
 COPY . .
+ARG DATABASE_URL=mysql://root:password@sql_db:3306/sharegpt
 RUN npx prisma generate --schema ./prisma/schema.prisma
 RUN npx prisma migrate dev --schema prisma/schema.prisma
 RUN npm run build
