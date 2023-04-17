@@ -10,3 +10,12 @@ services:
       - .env.production
     ports:
       - "3000:3000"
+      - "80:80"
+    volumes:
+      - ./components:/app/components
+      - ./store:/app/lib
+      - ./pages:/app/pages
+      - ./public:/app/prisma
+      - ./public:/app/public
+      - ./styles:/app/styles
+      - ./.next:/app/.next
