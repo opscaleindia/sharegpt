@@ -8,7 +8,7 @@
     "lint": "next lint",
     "prebuild": "prisma generate",
     "predev": "prisma generate",
-    "start": "next start -p 80"
+    "start": "next start"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.5",
