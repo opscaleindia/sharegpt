@@ -23,6 +23,7 @@ services:
     - ../../letsencrypt:/etc/letsencrypt
     ports:
     - "80:80"
+    - "443:443"
     networks:
       - sharegpt_network
 
@@ -31,3 +32,6 @@ networks:
   sharegpt_network:
     name: sharegpt_network
     external: true
+
+
+# certbot --nginx -d sharegpt.opscale.io -d www.sharegpt.opscale.io
