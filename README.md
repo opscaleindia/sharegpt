@@ -1,4 +1,4 @@
-<a href="https://sharegpt.com">
+<a href="https://sharegpt.opscale.io">
   <img alt="ShareGPT – Share your wildest ChatGPT conversations with one click." src="https://user-images.githubusercontent.com/28986134/207940414-b2314f7c-de04-4007-bc76-2ebb9d4f993c.png">
   <h1 align="center">ShareGPT</h1>
 </a>
@@ -30,7 +30,7 @@ ShareGPT is an open-source Chrome Extension for you to share your wildest ChatGP
 ### Features
 
 - Share your ChatGPT conversations with one-click
-- Browse examples on sharegpt.com/explore
+- Browse examples on sharegpt.opscale.io/explore
 - Save your favorite conversations for later
 - Leave comments on conversations
 
@@ -52,7 +52,7 @@ The ShareGPT API is a REST-styled API that allows you to write and read conversa
 
 ### Conversations Endpoint
 
-#### POST: `https://sharegpt.com/api/conversations`
+#### POST: `https://sharegpt.opscale.io/api/conversations`
 
 You can use this endpoint to add new conversations to our database.
 
@@ -116,7 +116,7 @@ function getAvatarImage() {
 Then, send a POST request to the endpoint above with the following payload and request headers:
 
 ```ts
-const res = await fetch("https://sharegpt.com/api/conversations", {
+const res = await fetch("https://sharegpt.opscale.io/api/conversations", {
   body: JSON.stringify(conversationData),
   headers: {
     "Content-Type": "application/json",
@@ -132,7 +132,7 @@ const { id } = await res.json();
 const url = `https://shareg.pt/${id}`; // short link to the ShareGPT post
 ```
 
-#### GET: `https://sharegpt.com/api/conversations`
+#### GET: `https://sharegpt.opscale.io/api/conversations`
 
 *PLEASE NOTE:* This endpoint is currently disabled due to excess traffic.
 
@@ -158,7 +158,7 @@ Example:
 
 ```ts
 await fetch(
-  "https://sharegpt.com/api/conversations?type=new&page=2&search=python"
+  "https://sharegpt.opscale.io/api/conversations?type=new&page=2&search=python"
 );
 ```
 

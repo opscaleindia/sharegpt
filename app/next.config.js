@@ -75,7 +75,7 @@ const nextConfig = {
     return [
       {
         source: "/explore",
-        destination: "https://sharegpt.com",
+        destination: "https://sharegpt.opscale.io",
         permanent: false,
       },
       {
@@ -109,7 +109,7 @@ const nextConfig = {
             value: "shareg.pt",
           },
         ],
-        destination: "https://sharegpt.com",
+        destination: "https://sharegpt.opscale.io",
         permanent: false,
       },
       {
@@ -120,7 +120,7 @@ const nextConfig = {
             value: "shareg.pt",
           },
         ],
-        destination: "https://sharegpt.com/c/:path*",
+        destination: "https://sharegpt.opscale.io/c/:path*",
         permanent: false,
       },
     ];

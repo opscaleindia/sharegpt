@@ -21,7 +21,7 @@ export default function Banner({ views }: { views: number }) {
     <div className="z-10 fixed bottom-5 inset-x-0 mx-auto max-w-fit rounded-lg px-3 py-2 bg-white border border-gray-100 shadow-md flex justify-between space-x-2 items-center">
       <div className="w-40 flex flex-col items-center justify-center">
         <Link
-          href="https://sharegpt.com"
+          href="https://sharegpt.opscale.io"
           target="_blank"
           rel="noopener noreferrer"
           className="flex space-x-2 items-center justify-center font-medium text-gray-600 px-4 py-1.5 rounded-md hover:bg-gray-100 active:bg-gray-200 transition-all"

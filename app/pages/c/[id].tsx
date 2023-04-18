@@ -74,9 +74,9 @@ export default function ChatPage({
       <Meta
         title={formatTitle(title)}
         description={`This is a conversation between a human and a GPT-3 chatbot. The human first asks: ${items[0]?.value}. The GPT-3 chatbot then responds: ${items[1]?.value}`}
-        image={`https://sharegpt.com/api/conversations/${id}/thumbnail`}
+        image={`https://sharegpt.opscale.io/api/conversations/${id}/thumbnail`}
         imageAlt={`This is a preview image for a conversation betwen a human and a GPT-3 chatbot. The human first asks: ${items[0]?.value}. The GPT-3 chatbot then responds: ${items[1]?.value}`}
-        canonical={`https://sharegpt.com/c/${id}`}
+        canonical={`https://sharegpt.opscale.io/c/${id}`}
       />
       <CommentModal />
       <Toaster />
