@@ -1,4 +1,4 @@
-import { connect } from "@planetscale/database";
+import mysql from "mysql";
 
 export const pscale_config = {
   host: "us-east.connect.psdb.cloud",
@@ -6,4 +6,3 @@ export const pscale_config = {
   password: process.env.PSCALE_PASSWORD,
 };
 
-export const conn = connect(pscale_config);
