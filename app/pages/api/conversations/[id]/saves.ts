@@ -1,40 +1,37 @@
-import { NextRequest } from "next/server";
-import { conn } from "@/lib/planetscale";
+import { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth/next";
+import { Session } from "@/lib/types";
+import { authOptions } from "pages/api/auth/[...nextauth]";
+import prisma from "@/lib/prisma";
 
-export const config = {
-  runtime: "experimental-edge",
-};
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
 
-export default async function handler(req: NextRequest) {
-  const url = req.nextUrl.pathname;
-  const id = decodeURIComponent(url.split("/")[3]);
-  if (!id) {
-    return new Response("Invalid ID", { status: 400 });
+  const { id } = req.query as { id: string };
+  
+  const session = (await getServerSession(
+    req,
+    res,
+    authOptions
+  )) as Session;
+  const userId = session?.user?.id;
+
+  if (!userId) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
   }
+
   if (req.method === "GET") {
-    const response = await conn.execute(
-      "SELECT COUNT(*) FROM Save WHERE conversationId = ?",
-      [id]
-    );
-    let count;
-    try {
-      // @ts-ignore
-      count = response.rows[0]["count(*)"];
-    } catch (e) {
-      count = 0;
-    }
-    return new Response(
-      JSON.stringify({
-        count,
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
+    const data = await prisma.save.findMany({
+      where: {
+          conversationId: id,
         },
-      }
+      },
     );
+    res.status(200).json({count: data.length});
   } else {
-    return new Response(`Method ${req.method} Not Allowed`, { status: 405 });
+    res.status(405).json({ error: "Method not allowed" });
   }
 }
