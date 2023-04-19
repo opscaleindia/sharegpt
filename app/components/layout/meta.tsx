@@ -4,9 +4,9 @@ const FAVICON_FOLDER = "/favicons";
 export default function Meta({
   title = `ShareGPT: Share your wildest ChatGPT conversations with one click.`,
   description = `ShareGPT is a Chrome extension that allows you to share your wildest ChatGPT conversations with one click.`,
-  image = "https://sharegpt.opscale.io/thumbnail.png",
+  image = `${process.env.NEXTAUTH_URL}/thumbnail.png`,
   imageAlt = "OG image for the ShareGPT application",
-  canonical = "https://sharegpt.opscale.io",
+  canonical = process.env.NEXTAUTH_URL,
 }: {
   title?: string;
   description?: string;
@@ -48,7 +48,7 @@ export default function Meta({
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta itemProp="image" content={image} />
-      <meta property="og:logo" content="https://sharegpt.opscale.io/logo.png"></meta>
+      <meta property="og:logo" content={`${process.env.NEXTAUTH_URL}/logo.png`}></meta>
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />

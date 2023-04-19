@@ -39,7 +39,7 @@ export default function ExploreLayout({
           type === "top" ? "Top" : "New"
         } Conversations on ShareGPT`,
         description,
-        canonical: `https://sharegpt.opscale.io/explore${
+        canonical: `${process.env.NEXTAUTH_URL}/explore${
           type === "top" ? "" : "/new"
         }`,
       }}
