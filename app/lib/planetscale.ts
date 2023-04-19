@@ -1,8 +1,8 @@
+import { connect } from "@planetscale/database";
 import mysql from "mysql";
 
-export const pscale_config = {
-  host: "us-east.connect.psdb.cloud",
-  username: process.env.PSCALE_USERNAME,
-  password: process.env.PSCALE_PASSWORD,
-};
-
+export const conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password"
+});
