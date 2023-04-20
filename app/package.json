@@ -39,6 +39,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-lite-youtube-embed": "^2.3.52",
+    "redis": "^4.6.5",
     "sanitize-html": "^2.8.0",
     "swr": "^2.0.0",
     "turbo": "^1.8.8",
