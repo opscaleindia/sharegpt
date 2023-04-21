@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getConvos } from "@/lib/api";
 import { PAGINATION_LIMIT } from "@/lib/constants";
 import { getServerSession } from "@/lib/auth";
-import { ratelimit } from "@/lib/upstash";
 import sanitizeHtml from "sanitize-html";
 
 import prisma from "@/lib/prisma";
@@ -96,10 +95,6 @@ export default async function handler(
     // POST /api/conversations (for saving conversations)
   } else if (req.method === "POST") {
     try {
-      const { success } = await ratelimit.limit("sharegpt-save-endpoint");
-      if (!success) {
-        return res.status(429).json({ error: "Don't DDoS me pls 🥺" });
-      }
       const session = await getServerSession(req, res);
       console.log("session data: ", session);
       const content = JSON.parse(JSON.stringify(req.body));
