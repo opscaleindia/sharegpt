@@ -12,20 +12,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === "GET") {
-    const data = await prisma.conversation.findMany({where: {id: id}});
-    if(data.length === 0) {
-      // no rows that match the id
-      res.redirect(new URL("/", req.url).href);
-      return;
-    }
-    console.log(data[0], "\n");
-    const { avatarUrl, items } = data[0].content;
-    const firstUserMessage = convert(items[0].value, {
-      wordwrap: false,
-    });
-    const firstBotMessage = convert(items[1].value, {
-      wordwrap: false,
-    });
+    // const data = await prisma.conversation.findMany({where: {id: id}});
+    // if(data.length === 0) {
+    //   // no rows that match the id
+    //   res.redirect(new URL("/", req.url).href);
+    //   return;
+    // }
+    // const { avatarUrl, items } = data[0].content;
+    // const firstUserMessage = convert(items[0].value, {
+    //   wordwrap: false,
+    // });
+    // const firstBotMessage = convert(items[1].value, {
+    //   wordwrap: false,
+    // });
 
     res.writeHead(200, {
       'Content-Type': 'image/png',

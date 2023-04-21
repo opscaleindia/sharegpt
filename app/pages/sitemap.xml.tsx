@@ -36,14 +36,11 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({
-  req,
-  res,
-}: {
+export async function getServerSideProps({req, res}: {
   req: NextApiRequest;
   res: NextApiResponse;
 }) {
-  const hostname = process.env.NEXTAUTH_URL;
+  const hostname = process.env.NEXTAUTH_URL??"";
 
   // Get all conversations
   const conversations = await prisma.conversation.findMany({

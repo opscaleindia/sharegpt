@@ -4,7 +4,8 @@ const FAVICON_FOLDER = "/favicons";
 export default function Meta({
   title = `ShareGPT: Share your wildest ChatGPT conversations with one click.`,
   description = `ShareGPT is a Chrome extension that allows you to share your wildest ChatGPT conversations with one click.`,
-  image = `${process.env.NEXTAUTH_URL}/thumbnail.png`,
+  // image = `${process.env.NEXTAUTH_URL}/thumbnail.png`,
+  image = `/thumbnail.png`,
   imageAlt = "OG image for the ShareGPT application",
   canonical = process.env.NEXTAUTH_URL,
 }: {
