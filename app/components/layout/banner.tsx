@@ -35,14 +35,6 @@ export default function Banner({ views }: { views: number }) {
           />
           <p>ShareGPT</p>
         </Link>
-        <Link
-          href="https://vercel.com?utm_source=sharegpt&utm_campaign=oss"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-gray-500 hover:text-gray-800 px-3"
-        >
-          Powered by ▲Vercel
-        </Link>
       </div>
       <div className="border-l border-gray-200 h-12 w-1" />
       <button

@@ -22,6 +22,19 @@ services:
     networks:
       - sharegpt_network
 
+  next_redis:
+    image: redis
+    env_file:
+      - .env.production
+    command: "redis-server --requirepass password"
+    volumes:
+      - redis_volume:/data
+      # - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - sharegpt_network
+
   next_app:
     container_name: next_app
     restart: always
@@ -34,6 +47,8 @@ services:
       - app_vol:/app
     networks:
       - sharegpt_network
+    ports:
+      - "3000:3000"
   
   next_nginx:
     image: nginx
@@ -48,16 +63,6 @@ services:
     networks:
       - sharegpt_network
 
-  next_redis:
-    image: redis
-    env_file:
-      - .env.production
-    # command: "redis-server --requirepass ${REDIS_PASSWORD}"
-    volumes:
-      - redis_volume:/data
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
-    networks:
-      - sharegpt_network
 
 
 networks:
