@@ -1,5 +1,4 @@
 volumes:
-  app_vol:
   redis_volume:
   sql_vol:
 
@@ -43,8 +42,6 @@ services:
       - sql_db
     env_file:
       - .env.production
-    volumes:
-      - app_vol:/app
     networks:
       - sharegpt_network
     ports:

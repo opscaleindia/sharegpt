@@ -169,7 +169,7 @@ export const getStaticProps = async (
   context: GetStaticPropsContext & { params: ChatParams }
 ) => {
   const { id } = context.params;
-
+  console.log("Generating static page:", id);
   const props = await getConvo(id);
 
   if (props) {
