@@ -1,10 +1,9 @@
+console.log("Running content script...");
+
 let isRequesting = false;
-
-const API_URL = "https://sharegpt.opscale.io/api/conversations";
-const PAGE_URL = "https://sharegpt.opscale.io/c/";
-
-// const API_URL = "http://localhost:3000/api/conversations";
-// const PAGE_URL = "http://localhost:3000/c/";
+let API_URL = "https://sharegpt.opscale.io/api/conversations";
+let PAGE_URL = "https://sharegpt.opscale.io/c/";
+let DEV_MODE= false;
 
 function init() {
   const shareButton = createBtn();
@@ -13,7 +12,11 @@ function init() {
     const buttonsWrapper = document.querySelector(
       "#__next main form > div div:nth-of-type(1)"
     );
-
+    if(!buttonsWrapper)
+    {
+      console.log("No target found");
+      return;
+    }
     buttonsWrapper.appendChild(shareButton);
   }
 
@@ -24,9 +27,10 @@ function init() {
       !document.querySelector("#share-button") ||
       document.querySelector("#share-button").style.display === "none"
     ) {
+      if(DEV_MODE) return clearInterval(id);
       appendShareButton();
     }
-  }, 500);
+  }, 1000);
 
   const textareaElement = document.querySelector("#__next main form textarea");
 
@@ -162,4 +166,19 @@ function createBtn() {
   return button;
 }
 
-init();
+
+if(!('update_url' in chrome.runtime.getManifest()))
+{
+  API_URL = "http://localhost:3000/api/conversations";
+  PAGE_URL = "http://localhost:3000/c/";
+  DEV_MODE= true;
+}
+else{
+  init();
+}
+
+
+
+
+
+
