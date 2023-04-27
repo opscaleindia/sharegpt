@@ -21,10 +21,14 @@
   },
   "content_scripts": [
     {
-      // "matches": ["https://chat.openai.com/*", "http://localhost/*"],
       "matches": ["http://*/*", "https://*/*"],
-      "js": ["index.js", "search.js"],
+      "js": ["search.js", "modal.js"],
       "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://chat.openai.com/*", "http://localhost/*"],
+      "js": ["index.js"],
+      "run_at": "document_end"
     }
   ]
   // "host_permissions": [
