@@ -121,10 +121,10 @@ async function importQuestions() {
 			batcher
 			.do()
 			.then(res => {
-			console.log(res)
+				console.log(res)
 			})
 			.catch(err => {
-			console.error(err)
+				console.error(err)
 			});
 
 			// restart the batch queue
